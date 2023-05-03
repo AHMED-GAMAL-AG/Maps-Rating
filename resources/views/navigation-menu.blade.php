@@ -7,7 +7,6 @@
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('dashboard') }}">
                         <x-application-mark class="block h-9 w-auto" />
-                        {{-- <img src="{{asset('images/logo_transparent.png')}}" alt="" width="60" height="60"> --}}
                     </a>
                 </div>
 
