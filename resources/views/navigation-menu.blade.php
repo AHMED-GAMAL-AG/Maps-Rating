@@ -13,7 +13,7 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex ">
-                    <x-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')" class="text-white mr-1">
+                    <x-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')" class="text-white mr-2">
                         {{ __('Dashboard') }}
                     </x-nav-link>
                 </div>
@@ -21,8 +21,8 @@
 
             @guest
                 <div class="flex">
-                    <x-nav-link href="{{ route('login') }}" class="ml-3">{{ __('Login') }}</x-nav-link>
-                    <x-nav-link href="{{ route('register') }}" class="ml-3">{{ __('Register') }}</x-nav-link>
+                    <x-nav-link href="{{ route('login') }}" class="ml-3 text-white">{{ __('Login') }}</x-nav-link>
+                    <x-nav-link href="{{ route('register') }}" class="text-white">{{ __('Register') }}</x-nav-link>
                 </div>
             @endguest
 
