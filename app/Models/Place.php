@@ -12,7 +12,7 @@ class Place extends Model
     public function ScopeSearch($query, $request)
     {
         if ($request->category_id) { // check if the user selected a category
-            $query->whereCategory_id($request->category_id);
+            $query->whereCategory_id($request->category);
         }
 
         if ($request->address) { // check if the user entered an input in the search field
