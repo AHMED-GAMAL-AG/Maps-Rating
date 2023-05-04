@@ -21,4 +21,9 @@ class Place extends Model
 
         return $query;
     }
+
+    public function getImageAttribute($image) // accessor function to get the image path
+    {
+        return asset('storage/images/' . $image);
+    }
 }

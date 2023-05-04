@@ -17,8 +17,7 @@
                         <div class="flex mb-5 bg-white">
                             <div class="flex-none w-48 relative">
                                 <a href="">
-                                    <img src="{{ $place->image }}" alt=""
-                                        class="absolute inset-0 w-full h-full object-cover" />
+                                    <img src="{{ $place->image }}" alt="" class="absolute inset-0 w-full h-full object-cover" />
                                 </a>
                             </div>
                             <div class="flex-auto p-6">
