@@ -1,4 +1,4 @@
-<form action="" method="post">
+<form action="{{route('search')}}" method="post">
     @csrf
     <div class="flex flex-row p-5">
         <div class="w-6/12">
@@ -11,7 +11,8 @@
 
         <div class="w-6/12">
             <select class="mr-5 bg-gray-200 w-full rounded-md" name="category">
-                <option value="">{{ __('حدد التصنيف ') }}</option>
+                <option value="">{{ __('حدد التصنيف') }}</option>
+                @include('includes.category_list')
             </select>
         </div>
 

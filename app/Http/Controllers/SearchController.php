@@ -7,7 +7,8 @@ use Illuminate\Http\Request;
 
 class SearchController extends Controller
 {
-    public function autoComplete(Request $request)
+    // shows search suggestions
+    public function autoComplete(Request $request) // this function will be called from the ajax in the layouts.app
     {
         if ($request->address) { // check if the user entered an input in the search field
             $input = $request->address;
@@ -22,5 +23,13 @@ class SearchController extends Controller
 
             return $output; // will be send to the ajax .done function in the layouts.app
         }
+    }
+
+    // shows search results
+    public function show(Request $request)
+    {
+        $places = Place::search($request)->get();
+
+        return view('list', compact('places'));
     }
 }

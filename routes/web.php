@@ -32,3 +32,4 @@ Route::middleware([
 Route::get('/' , [PlaceController::class , 'index'])->name('home');
 
 Route::get('/search' , [SearchController::class , 'autoComplete'])->name('auto-complete');
+Route::post('/search' , [SearchController::class , 'show'])->name('search');

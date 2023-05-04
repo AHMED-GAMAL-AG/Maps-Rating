@@ -20,6 +20,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        view()->composer('includes.header', CategoryComposer::class);
+        view()->composer(['includes.header', 'includes.category_list'], CategoryComposer::class);
     }
 }
