@@ -8,7 +8,7 @@
         </div>
 
         <div class="w-6/12">
-            <select class="p-1 mr-5 bg-gray-200 w-full rounded-md" name="category">
+            <select class="mr-5 bg-gray-200 w-full rounded-md" name="category">
                 <option value="">{{ __('حدد التصنيف ') }}</option>
             </select>
         </div>
