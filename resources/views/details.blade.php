@@ -63,7 +63,8 @@
                 <div class="bg-white col-span-2 shadow-lg rounded p-5 grid grid-cols-1 lg:grid-cols-3">
                     <div class="text-center v_line">
                         <h1>
-                            {{-- {{ round($total, 1) }} --}}
+                            {{-- rounds a float --}}
+                            {{ round($total, 1) }}
                         </h1>
                         <div class="rating">
                             {{-- <h3>
@@ -87,32 +88,32 @@
                             <span class=""></span>الخدمة
                         </div>
                         <div class="text-right">
-                            {{-- <progress value="{{ $service_rating }}" class="w-full" max="5"
-                                title="{{ round($service_rating, 1) }}"></progress> --}}
+                            <progress value="{{ $service_rating }}" class="w-full" max="5"
+                                title="{{ round($service_rating, 1) }}"></progress>
                         </div>
                         <!-- end 4 -->
                         <div class="text-right">
                             <span class=""></span>الجودة
                         </div>
                         <div class="text-right">
-                            {{-- <progress value="{{ $quality_rating }}" class="w-full" max="5"
-                                title="{{ round($quality_rating, 1) }}"></progress> --}}
+                            <progress value="{{ $quality_rating }}" class="w-full" max="5"
+                                title="{{ round($quality_rating, 1) }}"></progress>
                         </div>
                         <!-- end 3 -->
                         <div class="text-right">
                             <span class=""></span>النظافة
                         </div>
                         <div class="">
-                            {{-- <progress value="{{ $cleanliness_rating }}" class="w-full" max="5"
-                                title="{{ round($cleanliness_rating, 1) }}"></progress> --}}
+                            <progress value="{{ $cleanliness_rating }}" class="w-full" max="5"
+                                title="{{ round($cleanliness_rating, 1) }}"></progress>
                         </div>
                         <!-- end 2 -->
                         <div class="text-right">
                             <span class=""></span>السعر
                         </div>
                         <div class="">
-                            {{-- <progress value="{{ $pricing_rating }}" class="w-full" max="5"
-                                title="{{ round($pricing_rating, 1) }}"></progress> --}}
+                            <progress value="{{ $pricing_rating }}" class="w-full" max="5"
+                                title="{{ round($pricing_rating, 1) }}"></progress>
                         </div>
                         <!-- end 1 -->
                     </div>

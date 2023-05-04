@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Place;
+use App\Traits\ReadableTrait;
 use Illuminate\Http\Request;
 
 class PlaceController extends Controller
 {
+    use ReadableTrait;
     /**
      * Display a listing of the resource.
      */
@@ -38,7 +40,17 @@ class PlaceController extends Controller
      */
     public function show(Place $place)
     {
-        return view ('details', compact('place'));
+
+        $place = $place::withCount('reviews')->find($place->id); // get the review count for the place
+
+        $avg = $this->averageRating($place);
+        $service_rating = $avg['service_rating'];
+        $quality_rating = $avg['quality_rating'];
+        $cleanliness_rating = $avg['cleanliness_rating'];
+        $pricing_rating = $avg['pricing_rating'];
+        $total = $avg['total'];
+
+        return view ('details', compact('place' , 'service_rating', 'quality_rating', 'cleanliness_rating', 'pricing_rating', 'total'));
     }
 
     /**
