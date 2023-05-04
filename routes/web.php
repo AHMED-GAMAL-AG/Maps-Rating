@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\PlaceController;
 use App\Http\Controllers\SearchController;
 use Illuminate\Support\Facades\Route;
@@ -33,3 +34,5 @@ Route::get('/' , [PlaceController::class , 'index'])->name('home');
 
 Route::get('/search' , [SearchController::class , 'autoComplete'])->name('auto-complete');
 Route::post('/search' , [SearchController::class , 'show'])->name('search');
+
+Route::get('/{category:slug}' , [CategoryController::class , 'show'])->name('category.show'); // {category:slug} is to make laravel to search by the slug not the id as default

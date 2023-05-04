@@ -1,4 +1,4 @@
-<form action="{{route('search')}}" method="post">
+<form action="{{ route('search') }}" method="post">
     @csrf
     <div class="flex flex-row p-5">
         <div class="w-6/12">
@@ -29,7 +29,7 @@
         <ul>
             @foreach ($categories as $category)
                 <li>
-                    <a href="" class="bg-blue-900 hover:bg-gray-400">
+                    <a href="{{ route('category.show', $category->slug) }}" class="bg-blue-900 hover:bg-gray-400">
                         {{ $category->title }}</a>
                 </li>
             @endforeach
