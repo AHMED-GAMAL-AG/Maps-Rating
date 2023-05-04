@@ -2,9 +2,11 @@
     @csrf
     <div class="flex flex-row p-5">
         <div class="w-6/12">
-            <input id="address" name="address" type="text" autocomplete="off" class="p-2 w-full bg-gray-200 rounded-md"
-                placeholder="{{ __('حدد العنوان') }}">
-            <div id="address-list"></div>
+            <input id="address" name="address" type="text" autocomplete="off" class="p-2 w-full bg-gray-200 rounded-md" placeholder="{{ __('حدد العنوان') }}">
+
+            <div id="address-list">
+                {{-- the div address-list is filled from the ajax request in the layouts.app view --}}
+            </div>
         </div>
 
         <div class="w-6/12">
