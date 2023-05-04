@@ -16,15 +16,15 @@
                     @foreach ($places as $place)
                         <div class="flex mb-5 bg-white">
                             <div class="flex-none w-48 relative">
-                                <a href="">
+                                <a href="{{ route('place.show', [$place->id, $place->slug]) }}">
                                     <img src="{{ $place->image }}" alt="" class="absolute inset-0 w-full h-full object-cover" />
                                 </a>
                             </div>
                             <div class="flex-auto p-6">
                                 <div class="flex flex-wrap">
-                                    <h1 class="flex-auto text-xl font-semibold">
+                                    <a class="flex-auto text-xl font-semibold hover:underline" href="{{ route('place.show', [$place->id, $place->slug]) }}">
                                         {{ $place->name }}
-                                    </h1>
+                                    </a>
                                 </div>
                                 <div class="flex space-x-3 mb-4 text-sm font-medium mt-5">
                                     <div class="flex-auto flex space-x-3">

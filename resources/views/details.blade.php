@@ -1,6 +1,6 @@
 <x-app-layout>
     <x-slot name="header">
-        @include('includes/header')
+        @include('includes.header')
     </x-slot>
 
     <div class="py-12">
@@ -35,15 +35,17 @@
                 <hr />
                 <div class="p-3">
                     @auth
-                        <a href=""
-                            class="border border-teal-500 text-xs text-teal-500 hover:bg-teal-500 hover:text-gray-100 rounded ml-3 p-1">
-                            <span class=""><i
-                                    class="fa {{ Auth::user()->alreadyBookmarked($place->id) ? 'fa-bookmark' : 'fa-bookmark-o' }} fa-lg"></i></span>
+                        <a href="" class="border border-teal-500 text-xs text-teal-500 hover:bg-teal-500 hover:text-gray-100 rounded ml-3 p-1">
+                            <span class="">
+                                <i class="fa fa-lg"></i>
+                            </span>
                             علامة مرجعية
                         </a>
                         <a href=""
                             class="border border-red-500 text-xs text-red-500 hover:bg-red-500 hover:text-gray-200 rounded p-1">
-                            <span class=""><i class="fa fa-warning"></i></span>إبلاغ موقع مكرر
+                            <span class="">
+                                <i class="fa fa-warning"></i>
+                            </span>إبلاغ موقع مكرر
                         </a>
                     @else
                         <a href="{{ route('login') }}"
@@ -61,10 +63,10 @@
                 <div class="bg-white col-span-2 shadow-lg rounded p-5 grid grid-cols-1 lg:grid-cols-3">
                     <div class="text-center v_line">
                         <h1>
-                            {{ round($total, 1) }}
+                            {{-- {{ round($total, 1) }} --}}
                         </h1>
                         <div class="rating">
-                            <h3>
+                            {{-- <h3>
                                 @for ($i = 1; $i <= 5; $i++)
                                     @if ($i <= $total)
                                         <span class="fa fa-star" aria-hidden="true"></span>
@@ -74,7 +76,7 @@
                                         <span class="fa fa-star-o" aria-hidden="true"></span>
                                     @endif
                                 @endfor
-                            </h3>
+                            </h3> --}}
                         </div>
                         <div>
                             <span>عدد التقييمات</span> {{ $place->reviews_count }}
@@ -85,32 +87,32 @@
                             <span class=""></span>الخدمة
                         </div>
                         <div class="text-right">
-                            <progress value="{{ $service_rating }}" class="w-full" max="5"
-                                title="{{ round($service_rating, 1) }}"></progress>
+                            {{-- <progress value="{{ $service_rating }}" class="w-full" max="5"
+                                title="{{ round($service_rating, 1) }}"></progress> --}}
                         </div>
                         <!-- end 4 -->
                         <div class="text-right">
                             <span class=""></span>الجودة
                         </div>
                         <div class="text-right">
-                            <progress value="{{ $quality_rating }}" class="w-full" max="5"
-                                title="{{ round($quality_rating, 1) }}"></progress>
+                            {{-- <progress value="{{ $quality_rating }}" class="w-full" max="5"
+                                title="{{ round($quality_rating, 1) }}"></progress> --}}
                         </div>
                         <!-- end 3 -->
                         <div class="text-right">
                             <span class=""></span>النظافة
                         </div>
                         <div class="">
-                            <progress value="{{ $cleanliness_rating }}" class="w-full" max="5"
-                                title="{{ round($cleanliness_rating, 1) }}"></progress>
+                            {{-- <progress value="{{ $cleanliness_rating }}" class="w-full" max="5"
+                                title="{{ round($cleanliness_rating, 1) }}"></progress> --}}
                         </div>
                         <!-- end 2 -->
                         <div class="text-right">
                             <span class=""></span>السعر
                         </div>
                         <div class="">
-                            <progress value="{{ $pricing_rating }}" class="w-full" max="5"
-                                title="{{ round($pricing_rating, 1) }}"></progress>
+                            {{-- <progress value="{{ $pricing_rating }}" class="w-full" max="5"
+                                title="{{ round($pricing_rating, 1) }}"></progress> --}}
                         </div>
                         <!-- end 1 -->
                     </div>
@@ -118,7 +120,7 @@
                 </div>
 
                 <div class="bg-white col-span-2 shadow-lg rounded p-5">
-                    @foreach ($place->reviews as $review)
+                    {{-- @foreach ($place->reviews as $review)
                         <div class="row text-right bg-white p-4 shadow-sm">
                             <div class="review-block ">
                                 <div class="grid grid-cols-3 p-5">
@@ -162,15 +164,10 @@
                             </div>
                             <hr />
                         </div>
-                    @endforeach
+                    @endforeach --}}
                 </div>
 
                 <div id="review-div" class="bg-white col-span-2 shadow-lg rounded p-5">
-                    @if (session('success'))
-                        <x-alert color="blue" message="{{ session('success') }}" />
-                    @elseif(session('fail'))
-                        <x-alert color="red" message="{{ session('fail') }}" />
-                    @endif
                     <h3 class="mb-4 mt-3">أضف مراجعة</h3>
                     <hr />
                     <form class="form-contact" action="" method="post">
@@ -244,9 +241,6 @@
                             <div class="form-group">
                                 <textarea class="border w-full" name="review" id="review" cols="30" rows="9"></textarea>
                             </div>
-                            @error('review')
-                                <x-alert color="red" message="{{ $message }}" />
-                            @enderror
                             <input class="form-control" name="place_id" id="place_id" type="hidden"
                                 value="{{ $place->id }}">
                             <button type="submit"

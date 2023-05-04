@@ -31,12 +31,10 @@ Route::middleware([
 });
 
 Route::get('/' , [PlaceController::class , 'index'])->name('home');
+Route::get('/{place}/{slug}' , [PlaceController::class , 'show'])->name('place.show');
 
 Route::get('/search' , [SearchController::class , 'autoComplete'])->name('auto-complete');
 Route::post('/search' , [SearchController::class , 'show'])->name('search');
 
 Route::get('/{category:slug}' , [CategoryController::class , 'show'])->name('category.show'); // {category:slug} is to make laravel to search by the slug not the id as default
 
-Route::get('/details', function () {
-    return view('details');
-});

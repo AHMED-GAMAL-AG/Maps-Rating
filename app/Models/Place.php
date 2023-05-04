@@ -26,4 +26,9 @@ class Place extends Model
     {
         return asset('storage/images/' . $image);
     }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
