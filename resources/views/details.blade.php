@@ -35,7 +35,8 @@
                 <hr />
                 <div class="p-3">
                     @auth
-                        <a href="" class="border border-teal-500 text-xs text-teal-500 hover:bg-teal-500 hover:text-gray-100 rounded ml-3 p-1">
+                        <a href=""
+                            class="border border-teal-500 text-xs text-teal-500 hover:bg-teal-500 hover:text-gray-100 rounded ml-3 p-1">
                             <span class="">
                                 <i class="fa fa-lg"></i>
                             </span>
@@ -67,17 +68,18 @@
                             {{ round($total, 1) }}
                         </h1>
                         <div class="rating">
-                            {{-- <h3>
+                            <h3>
                                 @for ($i = 1; $i <= 5; $i++)
                                     @if ($i <= $total)
                                         <span class="fa fa-star" aria-hidden="true"></span>
+                                        {{-- for ex if total eq 3.5 it will be rounded to 4 then if i = 4 show half star --}}
                                     @elseif($i == round($total))
                                         <span class="fa fa-star-half-o fa-flip-horizontal" aria-hidden="true"></span>
                                     @else
                                         <span class="fa fa-star-o" aria-hidden="true"></span>
                                     @endif
                                 @endfor
-                            </h3> --}}
+                            </h3>
                         </div>
                         <div>
                             <span>عدد التقييمات</span> {{ $place->reviews_count }}
@@ -177,10 +179,10 @@
                             <div class="">
                                 <div class="rating float-right">
                                     <h5>الخدمة</h5>
-                                    <input type="radio" id="rating_service1" name="service_rating"
-                                        value="5" /><label for="rating_service1" title="ممتاز"></label>
-                                    <input type="radio" id="rating_service2" name="service_rating"
-                                        value="4" /><label for="rating_service2" title="جيد جدًا"></label>
+                                    <input type="radio" id="rating_service1" name="service_rating" value="5" /><label
+                                        for="rating_service1" title="ممتاز"></label>
+                                    <input type="radio" id="rating_service2" name="service_rating" value="4" /><label
+                                        for="rating_service2" title="جيد جدًا"></label>
                                     <input type="radio" id="rating_service3" name="service_rating"
                                         value="3" /><label for="rating_service3" title="متوسط"></label>
                                     <input type="radio" id="rating_service4" name="service_rating"
@@ -252,4 +254,3 @@
             </div>
         </div>
     </x-app-layout>
-
