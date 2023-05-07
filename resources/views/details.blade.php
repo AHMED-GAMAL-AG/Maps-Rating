@@ -141,6 +141,13 @@
                 </div>
 
                 <div id="review-div" class="bg-white col-span-2 shadow-lg rounded p-5">
+
+                    @if (session('success'))
+                        <x-alert color="blue" message="{{ session('success') }}" />
+                    @elseif(session('fail'))
+                        <x-alert color="red" message="{{ session('fail') }}" />
+                    @endif
+
                     <h3 class="mb-4 mt-3">أضف مراجعة</h3>
                     <hr />
                     <form class="form-contact" action="{{ route('review.store') }}" method="post">
@@ -195,7 +202,7 @@
                                 <textarea class="border w-full" name="review" id="review" cols="30" rows="9"></textarea>
                             </div>
                             <input class="form-control" name="place_id" id="place_id" type="hidden" value="{{ $place->id }}">
-                            <button type="submit" class="mt-3 bg-blue-600 text-gray-200 rounded hover:bg-blue-500 px-4 py-2 focus:outline-none">{{__('إرسال')}}</button>
+                            <button type="submit" class="mt-3 bg-blue-600 text-gray-200 rounded hover:bg-blue-500 px-4 py-2 focus:outline-none">{{ __('إرسال') }}</button>
                         </div>
                     </form>
                 </div>

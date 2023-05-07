@@ -31,12 +31,12 @@ class ReviewController extends Controller
 
         if($request->user()->reviews()->wherePlace_id($request->place_id)->exists())
         {
-            return redirect(url()->previous() . '#review-div'); // redirect to the previous page to the review div
+            return redirect(url()->previous() . '#review-div')->with('fail' , 'لقد قيمت هذا الموقع مسبقاً'); // redirect to the previous page to the review div
         }
 
         Review::create($request->all() + ['user_id' => auth()->id()]);
 
-        return redirect(url()->previous() . '#review-div'); // redirect to the previous page to the review div
+        return redirect(url()->previous() . '#review-div')->with('success' , __('تم إضافة التقيم بنجاح')); // redirect to the previous page to the review div
     }
 
     /**
