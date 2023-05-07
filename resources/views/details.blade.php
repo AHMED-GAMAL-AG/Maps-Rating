@@ -123,7 +123,7 @@
                 </div>
 
                 <div class="bg-white col-span-2 shadow-lg rounded p-5">
-                    {{-- @foreach ($place->reviews as $review)
+                    @foreach ($place->reviews as $review)
                         <div class="row text-right bg-white p-4 shadow-sm">
                             <div class="review-block ">
                                 <div class="grid grid-cols-3 p-5">
@@ -134,7 +134,7 @@
                                     </div>
                                     <div class="col-span-2">
                                         <div class="rating">
-
+{{--
                                             @for ($i = 1; $i <= 5; $i++)
                                                 @if ($i <= $review->avgRating())
                                                     <span class="fa fa-star" aria-hidden="true"></span>
@@ -144,7 +144,7 @@
                                                 @else
                                                     <span class="fa fa-star-o" aria-hidden="true"></span>
                                                 @endif
-                                            @endfor
+                                            @endfor --}}
                                         </div>
                                         <div class="review-block-description ">{{ $review->review }}</div>
 
@@ -167,7 +167,7 @@
                             </div>
                             <hr />
                         </div>
-                    @endforeach --}}
+                    @endforeach
                 </div>
 
                 <div id="review-div" class="bg-white col-span-2 shadow-lg rounded p-5">
@@ -179,10 +179,10 @@
                             <div class="">
                                 <div class="rating float-right">
                                     <h5>الخدمة</h5>
-                                    <input type="radio" id="rating_service1" name="service_rating" value="5" /><label
-                                        for="rating_service1" title="ممتاز"></label>
-                                    <input type="radio" id="rating_service2" name="service_rating" value="4" /><label
-                                        for="rating_service2" title="جيد جدًا"></label>
+                                    <input type="radio" id="rating_service1" name="service_rating"
+                                        value="5" /><label for="rating_service1" title="ممتاز"></label>
+                                    <input type="radio" id="rating_service2" name="service_rating"
+                                        value="4" /><label for="rating_service2" title="جيد جدًا"></label>
                                     <input type="radio" id="rating_service3" name="service_rating"
                                         value="3" /><label for="rating_service3" title="متوسط"></label>
                                     <input type="radio" id="rating_service4" name="service_rating"

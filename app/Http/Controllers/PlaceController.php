@@ -41,7 +41,7 @@ class PlaceController extends Controller
     public function show(Place $place)
     {
 
-        $place = $place::withCount('reviews')->find($place->id); // get the review count for the place
+        $place = $place::withCount('reviews')->with('reviews.user')->find($place->id); // get the review count for the place and the reviews data // reviews.user means get the review data with the user associated with it to make the sql query faster and less
 
         $avg = $this->averageRating($place);
         $service_rating = $avg['service_rating'];
