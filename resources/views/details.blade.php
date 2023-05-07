@@ -35,26 +35,22 @@
                 <hr />
                 <div class="p-3">
                     @auth
-                        <a href=""
-                            class="border border-teal-500 text-xs text-teal-500 hover:bg-teal-500 hover:text-gray-100 rounded ml-3 p-1">
+                        <a href="" class="border border-teal-500 text-xs text-teal-500 hover:bg-teal-500 hover:text-gray-100 rounded ml-3 p-1">
                             <span class="">
                                 <i class="fa fa-lg"></i>
                             </span>
                             علامة مرجعية
                         </a>
-                        <a href=""
-                            class="border border-red-500 text-xs text-red-500 hover:bg-red-500 hover:text-gray-200 rounded p-1">
+                        <a href="" class="border border-red-500 text-xs text-red-500 hover:bg-red-500 hover:text-gray-200 rounded p-1">
                             <span class="">
                                 <i class="fa fa-warning"></i>
                             </span>إبلاغ موقع مكرر
                         </a>
                     @else
-                        <a href="{{ route('login') }}"
-                            class="border border-teal-500 text-xs text-teal-500 hover:bg-teal-500 hover:text-gray-100 rounded ml-3 p-1">
+                        <a href="{{ route('login') }}" class="border border-teal-500 text-xs text-teal-500 hover:bg-teal-500 hover:text-gray-100 rounded ml-3 p-1">
                             <span class=""><i class="fa fa-bookmark-o fa-lg"></i></span> علامة مرجعية
                         </a>
-                        <a href="{{ route('login') }}"
-                            class="border border-red-500 text-xs text-red-500 hover:bg-red-500 hover:text-gray-200 rounded p-1">
+                        <a href="{{ route('login') }}" class="border border-red-500 text-xs text-red-500 hover:bg-red-500 hover:text-gray-200 rounded p-1">
                             <span class=""><i class="fa fa-warning"></i></span>إبلاغ موقع مكرر
                         </a>
                         @endif
@@ -81,32 +77,28 @@
                             <span class=""></span>الخدمة
                         </div>
                         <div class="text-right">
-                            <progress value="{{ $service_rating }}" class="w-full" max="5"
-                                title="{{ round($service_rating, 1) }}"></progress>
+                            <progress value="{{ $service_rating }}" class="w-full" max="5" title="{{ round($service_rating, 1) }}"></progress>
                         </div>
                         <!-- end 4 -->
                         <div class="text-right">
                             <span class=""></span>الجودة
                         </div>
                         <div class="text-right">
-                            <progress value="{{ $quality_rating }}" class="w-full" max="5"
-                                title="{{ round($quality_rating, 1) }}"></progress>
+                            <progress value="{{ $quality_rating }}" class="w-full" max="5" title="{{ round($quality_rating, 1) }}"></progress>
                         </div>
                         <!-- end 3 -->
                         <div class="text-right">
                             <span class=""></span>النظافة
                         </div>
                         <div class="">
-                            <progress value="{{ $cleanliness_rating }}" class="w-full" max="5"
-                                title="{{ round($cleanliness_rating, 1) }}"></progress>
+                            <progress value="{{ $cleanliness_rating }}" class="w-full" max="5" title="{{ round($cleanliness_rating, 1) }}"></progress>
                         </div>
                         <!-- end 2 -->
                         <div class="text-right">
                             <span class=""></span>السعر
                         </div>
                         <div class="">
-                            <progress value="{{ $pricing_rating }}" class="w-full" max="5"
-                                title="{{ round($pricing_rating, 1) }}"></progress>
+                            <progress value="{{ $pricing_rating }}" class="w-full" max="5" title="{{ round($pricing_rating, 1) }}"></progress>
                         </div>
                         <!-- end 1 -->
                     </div>
@@ -130,18 +122,15 @@
                                         <div class="review-block-description ">{{ $review->review }}</div>
 
                                         <div class="mt-3">
-                                            @auth
-                                                <button id="like" type="button" data-id="{{ $review->id }}"
-                                                    class="border rounded p-1 text-xs like">
-                                                    {!! Auth::user()->alreadyliked($review->id)
-                                                        ? '<i class="fa fa-thumbs-down"></i><small> إلغاء الإعجاب </small>'
-                                                        : '<i class="fa fa-thumbs-up"></i><small> أعجبني </small>' !!}
+                                            {{-- @auth
+                                                <button id="like" type="button" data-id="{{ $review->id }}" class="border rounded p-1 text-xs like">
+                                                    {!! Auth::user()->alreadyliked($review->id) ? '<i class="fa fa-thumbs-down"></i><small> إلغاء الإعجاب </small>' : '<i class="fa fa-thumbs-up"></i><small> أعجبني </small>' !!}
                                                     <span>{{ $review->likes_count }}</span>
                                                 </button>
                                             @else
                                                 <span class="border rounded text-xs p-1"><i class="fa fa-thumbs-up"></i>
                                                     {{ $review->likes_count }}</span>
-                                            @endauth
+                                            @endauth --}}
                                         </div>
                                     </div>
                                 </div>
@@ -154,37 +143,27 @@
                 <div id="review-div" class="bg-white col-span-2 shadow-lg rounded p-5">
                     <h3 class="mb-4 mt-3">أضف مراجعة</h3>
                     <hr />
-                    <form class="form-contact" action="" method="post">
+                    <form class="form-contact" action="{{ route('review.store') }}" method="post">
                         @csrf
                         <div class="grid grid-cols-2 mt-5">
                             <div class="">
                                 <div class="rating float-right">
                                     <h5>الخدمة</h5>
-                                    <input type="radio" id="rating_service1" name="service_rating"
-                                        value="5" /><label for="rating_service1" title="ممتاز"></label>
-                                    <input type="radio" id="rating_service2" name="service_rating"
-                                        value="4" /><label for="rating_service2" title="جيد جدًا"></label>
-                                    <input type="radio" id="rating_service3" name="service_rating"
-                                        value="3" /><label for="rating_service3" title="متوسط"></label>
-                                    <input type="radio" id="rating_service4" name="service_rating"
-                                        value="2" /><label for="rating_service4" title="سيء"></label>
-                                    <input type="radio" id="rating_service5" name="service_rating"
-                                        value="1" /><label for="rating_service5" title="سيء للغاية"></label>
+                                    <input type="radio" id="rating_service1" name="service_rating" value="5" /><label for="rating_service1" title="ممتاز"></label>
+                                    <input type="radio" id="rating_service2" name="service_rating" value="4" /><label for="rating_service2" title="جيد جدًا"></label>
+                                    <input type="radio" id="rating_service3" name="service_rating" value="3" /><label for="rating_service3" title="متوسط"></label>
+                                    <input type="radio" id="rating_service4" name="service_rating" value="2" /><label for="rating_service4" title="سيء"></label>
+                                    <input type="radio" id="rating_service5" name="service_rating" value="1" /><label for="rating_service5" title="سيء للغاية"></label>
                                 </div>
                             </div>
                             <div class="">
                                 <div class="rating float-right">
                                     <h5>الجودة</h5>
-                                    <input type="radio" id="rating_quality1" name="quality_rating"
-                                        value="5" /><label for="rating_quality1" title="ممتاز"></label>
-                                    <input type="radio" id="rating_quality2" name="quality_rating"
-                                        value="4" /><label for="rating_quality2" title="جيد جدًا"></label>
-                                    <input type="radio" id="rating_quality3" name="quality_rating"
-                                        value="3" /><label for="rating_quality3" title="متوسط"></label>
-                                    <input type="radio" id="rating_quality4" name="quality_rating"
-                                        value="2" /><label for="rating_quality4" title="سيء"></label>
-                                    <input type="radio" id="rating_quality5" name="quality_rating"
-                                        value="1" /><label for="rating_quality5" title="سيء للغاية"></label>
+                                    <input type="radio" id="rating_quality1" name="quality_rating" value="5" /><label for="rating_quality1" title="ممتاز"></label>
+                                    <input type="radio" id="rating_quality2" name="quality_rating" value="4" /><label for="rating_quality2" title="جيد جدًا"></label>
+                                    <input type="radio" id="rating_quality3" name="quality_rating" value="3" /><label for="rating_quality3" title="متوسط"></label>
+                                    <input type="radio" id="rating_quality4" name="quality_rating" value="2" /><label for="rating_quality4" title="سيء"></label>
+                                    <input type="radio" id="rating_quality5" name="quality_rating" value="1" /><label for="rating_quality5" title="سيء للغاية"></label>
                                 </div>
                             </div>
                         </div>
@@ -192,31 +171,21 @@
                             <div class="">
                                 <div class="rating float-right">
                                     <h5>النظافة</h5>
-                                    <input type="radio" id="rating_cleanliness1" name="cleanliness_rating"
-                                        value="5" /><label for="rating_cleanliness1" title="ممتاز"></label>
-                                    <input type="radio" id="rating_cleanliness2" name="cleanliness_rating"
-                                        value="4" /><label for="rating_cleanliness2" title="جيد جدًا"></label>
-                                    <input type="radio" id="rating_cleanliness3" name="cleanliness_rating"
-                                        value="3" /><label for="rating_cleanliness3" title="متوسط"></label>
-                                    <input type="radio" id="rating_cleanliness4" name="cleanliness_rating"
-                                        value="2" /><label for="rating_cleanliness4" title="سيء"></label>
-                                    <input type="radio" id="rating_cleanliness5" name="cleanliness_rating"
-                                        value="1" /><label for="rating_cleanliness5" title="سيء للغاية"></label>
+                                    <input type="radio" id="rating_cleanliness1" name="cleanliness_rating" value="5" /><label for="rating_cleanliness1" title="ممتاز"></label>
+                                    <input type="radio" id="rating_cleanliness2" name="cleanliness_rating" value="4" /><label for="rating_cleanliness2" title="جيد جدًا"></label>
+                                    <input type="radio" id="rating_cleanliness3" name="cleanliness_rating" value="3" /><label for="rating_cleanliness3" title="متوسط"></label>
+                                    <input type="radio" id="rating_cleanliness4" name="cleanliness_rating" value="2" /><label for="rating_cleanliness4" title="سيء"></label>
+                                    <input type="radio" id="rating_cleanliness5" name="cleanliness_rating" value="1" /><label for="rating_cleanliness5" title="سيء للغاية"></label>
                                 </div>
                             </div>
                             <div class="">
                                 <div class="rating float-right">
                                     <h5>السعر</h5>
-                                    <input type="radio" id="rating_price1" name="pricing_rating"
-                                        value="5" /><label for="rating_price1" title="ممتاز"></label>
-                                    <input type="radio" id="rating_price2" name="pricing_rating"
-                                        value="4" /><label for="rating_price2" title="جيد جدًا"></label>
-                                    <input type="radio" id="rating_price3" name="pricing_rating"
-                                        value="3" /><label for="rating_price3" title="متوسط"></label>
-                                    <input type="radio" id="rating_price4" name="pricing_rating"
-                                        value="2" /><label for="rating_price4" title="سيء"></label>
-                                    <input type="radio" id="rating_price5" name="pricing_rating"
-                                        value="1" /><label for="rating_price5" title="سيء للغاية"></label>
+                                    <input type="radio" id="rating_price1" name="pricing_rating" value="5" /><label for="rating_price1" title="ممتاز"></label>
+                                    <input type="radio" id="rating_price2" name="pricing_rating" value="4" /><label for="rating_price2" title="جيد جدًا"></label>
+                                    <input type="radio" id="rating_price3" name="pricing_rating" value="3" /><label for="rating_price3" title="متوسط"></label>
+                                    <input type="radio" id="rating_price4" name="pricing_rating" value="2" /><label for="rating_price4" title="سيء"></label>
+                                    <input type="radio" id="rating_price5" name="pricing_rating" value="1" /><label for="rating_price5" title="سيء للغاية"></label>
                                 </div>
                             </div>
                         </div>
@@ -225,10 +194,8 @@
                             <div class="form-group">
                                 <textarea class="border w-full" name="review" id="review" cols="30" rows="9"></textarea>
                             </div>
-                            <input class="form-control" name="place_id" id="place_id" type="hidden"
-                                value="{{ $place->id }}">
-                            <button type="submit"
-                                class="mt-3 bg-blue-600 text-gray-200 rounded hover:bg-blue-500 px-4 py-2 focus:outline-none">إرسال</button>
+                            <input class="form-control" name="place_id" id="place_id" type="hidden" value="{{ $place->id }}">
+                            <button type="submit" class="mt-3 bg-blue-600 text-gray-200 rounded hover:bg-blue-500 px-4 py-2 focus:outline-none">{{__('إرسال')}}</button>
                         </div>
                     </form>
                 </div>

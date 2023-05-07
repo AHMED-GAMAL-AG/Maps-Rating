@@ -44,6 +44,8 @@ footer {
 }
 
 /******************************************* */
+
+/* .rating to convert the radio buttons to stars */
 .rating {
     color: gold;
 }
@@ -52,6 +54,7 @@ footer {
     color: rgb(87, 83, 83);
 }
 
+/* by default the radio button will be hidden*/
 .rating:not(:checked)>input {
     display: none;
     cursor: pointer;
