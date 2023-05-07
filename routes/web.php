@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\PlaceController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\SearchController;
@@ -31,6 +32,8 @@ Route::middleware([
     })->name('dashboard');
 });
 
+Route::resource('/report' , ContactController::class , ['only' => ['create' , 'store'] ]);
+
 Route::get('/' , [PlaceController::class , 'index'])->name('home');
 Route::get('/{place}/{slug}' , [PlaceController::class , 'show'])->name('place.show');
 
@@ -40,3 +43,4 @@ Route::post('/search' , [SearchController::class , 'show'])->name('search');
 Route::get('/{category:slug}' , [CategoryController::class , 'show'])->name('category.show'); // {category:slug} is to make laravel to search by the slug not the id as default
 
 Route::post('/review' , [ReviewController::class , 'store'])->name('review.store');
+
