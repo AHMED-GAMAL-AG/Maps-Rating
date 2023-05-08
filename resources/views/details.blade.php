@@ -214,3 +214,30 @@
             </div>
         </div>
     </x-app-layout>
+
+    <script type="text/javascript">
+    // on click on like button send ajax request to store like
+        $(function() {
+            $('button.like').on('click', function() {
+                var review = $(this).data('id');
+                var like_button = $(this);
+
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+
+                $.ajax({
+                    url: "{{ route('like.store') }}",
+                    type: 'POST',
+                    data: {
+                        'review_id': review
+                    }
+                }).done(function(data) {
+                    like_button.find('span').text(data);
+                })
+
+            })
+        });
+    </script>
