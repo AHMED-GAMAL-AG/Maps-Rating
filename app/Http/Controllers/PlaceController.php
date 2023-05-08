@@ -40,8 +40,11 @@ class PlaceController extends Controller
      */
     public function show(Place $place)
     {
-
-        $place = $place::withCount('reviews')->with('reviews.user')->find($place->id); // get the review count for the place and the reviews data // reviews.user means get the review data with the user associated with it to make the sql query faster and less
+        // get the place data with the reviews and the user associated with the review
+        $place = $place::withCount('reviews')->with(['reviews' => function ($query) {
+            $query->with('user');
+            $query->withCount('likes');
+        }])->find($place->id); // get the review count for the place and the reviews data // reviews.user means get the review data with the user associated with it to make the sql query faster and less
 
         $avg = $this->averageRating($place);
         $service_rating = $avg['service_rating'];
@@ -50,7 +53,7 @@ class PlaceController extends Controller
         $pricing_rating = $avg['pricing_rating'];
         $total = $avg['total'];
 
-        return view ('details', compact('place' , 'service_rating', 'quality_rating', 'cleanliness_rating', 'pricing_rating', 'total'));
+        return view('details', compact('place', 'service_rating', 'quality_rating', 'cleanliness_rating', 'pricing_rating', 'total'));
     }
 
     /**

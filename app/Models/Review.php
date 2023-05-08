@@ -36,4 +36,9 @@ class Review extends Model
         return $total;
     }
 
+    public function likes()
+    {
+        return $this->belongsToMany(User::class , 'likes');
+    }
+
 }
