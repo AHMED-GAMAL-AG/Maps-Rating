@@ -216,7 +216,7 @@
     </x-app-layout>
 
     <script type="text/javascript">
-    // on click on like button send ajax request to store like
+        // on click on like button send ajax request to store like
         $(function() {
             $('button.like').on('click', function() {
                 var review = $(this).data('id');
@@ -235,8 +235,20 @@
                         'review_id': review
                     }
                 }).done(function(data) {
-                    like_button.find('span').text(data);
-                })
+                    if (data) {
+                        $.trim(like_button.find('small').text()) == 'أعجبني' ? showUnLike(data) : showLike(data);
+                    } else {
+                        alert('لا يمكنك الإعجاب بهذه المراجعة');
+                    }
+                });
+
+                function showUnLike(count) {
+                    like_button.html('<li class="fa fa-thumbs-down"></li> <small>' + 'إلغاء الإعجاب' + '</small>' + count);
+                }
+
+                function showLike(count) {
+                    like_button.html('<li class="fa fa-thumbs-up"></li> <small>' + 'أعجبني' + '</small>' + count);
+                }
 
             })
         });
