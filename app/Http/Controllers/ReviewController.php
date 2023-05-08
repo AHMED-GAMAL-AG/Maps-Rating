@@ -29,14 +29,21 @@ class ReviewController extends Controller
     public function store(Request $request)
     {
 
-        if($request->user()->reviews()->wherePlace_id($request->place_id)->exists())
-        {
-            return redirect(url()->previous() . '#review-div')->with('fail' , 'لقد قيمت هذا الموقع مسبقاً'); // redirect to the previous page to the review div
+        $request->validate([
+            'service_rating' => 'required',
+            'quality_rating' => 'required',
+            'cleanliness_rating' => 'required',
+            'pricing_rating' => 'required',
+            'review' => 'required',
+        ]);
+
+        if ($request->user()->reviews()->wherePlace_id($request->place_id)->exists()) {
+            return redirect(url()->previous() . '#review-div')->with('fail', 'لقد قمت بتقييم هذا الموقع مسبقاً'); // redirect to the previous page to the review div
         }
 
         Review::create($request->all() + ['user_id' => auth()->id()]);
 
-        return redirect(url()->previous() . '#review-div')->with('success' , __('تم إضافة التقيم بنجاح')); // redirect to the previous page to the review div
+        return redirect(url()->previous() . '#review-div')->with('success', __('تم إضافة التقيم بنجاح')); // redirect to the previous page to the review div
     }
 
     /**

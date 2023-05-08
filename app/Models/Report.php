@@ -7,5 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Report extends Model
 {
+
+    protected $fillable = [
+        'name',
+        'email',
+        'place_url',
+    ];
+
     use HasFactory;
 }

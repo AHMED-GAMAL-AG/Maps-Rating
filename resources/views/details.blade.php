@@ -199,9 +199,14 @@
 
                         <div class="mt-4">
                             <div class="form-group">
-                                <textarea class="border w-full" name="review" id="review" cols="30" rows="9"></textarea>
+                                <textarea class="border w-full @error('review') is-invalid @enderror" name="review" id="review" cols="30" rows="9"></textarea>
                             </div>
                             <input class="form-control" name="place_id" id="place_id" type="hidden" value="{{ $place->id }}">
+
+                            @error('review')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
+
                             <button type="submit" class="mt-3 bg-blue-600 text-gray-200 rounded hover:bg-blue-500 px-4 py-2 focus:outline-none">{{ __('إرسال') }}</button>
                         </div>
                     </form>
