@@ -63,4 +63,17 @@ class User extends Authenticatable
     {
         return $this->hasMany(Review::class);
     }
+
+
+    public function likes()
+    {
+        return $this->belongsToMany(Review::class, 'likes'); // user can make many likes and review can have many likes
+    }
+
+    public function alreadyliked($review)
+    {
+        return $this->likes()->whereReviewId($review)->exists();
+    }
+
+
 }
