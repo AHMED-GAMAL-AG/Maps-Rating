@@ -9,7 +9,7 @@ class LikeController extends Controller
 {
     public function store(Request $request)
     {
-        $request->user()->likes()->attach($request->review_id); // attach the review id to the user id
+        $request->user()->likes()->toggle($request->review_id); // toggle attach or detach the like to the user reviews
 
         return Review::find($request->review_id)->likes()->count(); // return the count of the likes for the review to the ajax request
     }
