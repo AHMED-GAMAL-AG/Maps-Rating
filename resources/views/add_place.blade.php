@@ -71,8 +71,9 @@
     });
 
     var geocodeService = L.esri.Geocoding.geocodeService();
+    var marker = null; // Keep track of the marker
 
-    map.on('mousedown', function(e) {
+    map.on('click', function(e) {
         $('#latitude').val(e.latlng.lat);
         $('#longitude').val(e.latlng.lng);
         geocodeService.reverse().latlng(e.latlng).run(function(error, result) {
@@ -80,7 +81,11 @@
                 return;
             }
 
-            L.marker(result.latlng).addTo(map).bindPopup(result.address.Match_addr).openPopup();
-        })
-    })
+            if (marker) {
+                map.removeLayer(marker); // Remove the previous marker
+            }
+
+            marker = L.marker(result.latlng).addTo(map).bindPopup(result.address.Match_addr).openPopup();
+        });
+    });
 </script>
