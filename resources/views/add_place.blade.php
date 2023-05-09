@@ -15,7 +15,7 @@
                 </div>
                 <div class="">
                     <label for="catg"> {{ __('اختر التصنيف') }}</label>
-                    <select class="w-full mt-2 mb-6 px-4 py-2 border rounded-lg text-gray-700 focus:outline-none focus:border-blue-400" name="category_id">
+                    <select class="w-full mt-2 mb-6 py-2 border rounded-lg text-gray-700 focus:outline-none focus:border-blue-400" name="category_id">
                         @include('includes.category_list')
                     </select>
                 </div>
@@ -50,6 +50,8 @@
 
 <!-- Make sure you put this AFTER Leaflet's CSS -->
 <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js" integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
+<script src="https://unpkg.com/esri-leaflet@2.3.3/dist/esri-leaflet.js"></script>
+<script src="https://unpkg.com/esri-leaflet-geocoder@2.3.2/dist/esri-leaflet-geocoder.js"></script>
 <script type="text/javascript">
     var map = L.map('mapid');
 
@@ -67,4 +69,18 @@
     map.on('locationerror', function(e) {
         alert(e.message);
     });
+
+    var geocodeService = L.esri.Geocoding.geocodeService();
+
+    map.on('mousedown', function(e) {
+        $('#latitude').val(e.latlng.lat);
+        $('#longitude').val(e.latlng.lng);
+        geocodeService.reverse().latlng(e.latlng).run(function(error, result) {
+            if (error) {
+                return;
+            }
+
+            L.marker(result.latlng).addTo(map).bindPopup(result.address.Match_addr).openPopup();
+        })
+    })
 </script>
