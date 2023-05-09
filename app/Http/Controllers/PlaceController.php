@@ -24,7 +24,7 @@ class PlaceController extends Controller
      */
     public function create()
     {
-        //
+        return view('add_place');
     }
 
     /**

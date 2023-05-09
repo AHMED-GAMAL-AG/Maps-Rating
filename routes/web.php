@@ -28,21 +28,22 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified'
 ])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
+    Route::get('/', function () {
+        return view('welcome');
+    })->name('welcome');
 });
 
-Route::resource('/report' , ContactController::class , ['only' => ['create' , 'store'] ]);
+Route::resource('/report', ContactController::class, ['only' => ['create', 'store']]);
 
-Route::get('/' , [PlaceController::class , 'index'])->name('home');
-Route::get('/{place}/{slug}' , [PlaceController::class , 'show'])->name('place.show');
+Route::get('/', [PlaceController::class, 'index']);
+Route::resource('/place', PlaceController::class);
+Route::get('/{place}/{slug}', [PlaceController::class, 'show'])->name('place.show');
 
-Route::get('/search' , [SearchController::class , 'autoComplete'])->name('auto-complete');
-Route::post('/search' , [SearchController::class , 'show'])->name('search');
+Route::get('/search', [SearchController::class, 'autoComplete'])->name('auto-complete');
+Route::post('/search', [SearchController::class, 'show'])->name('search');
 
-Route::get('/{category:slug}' , [CategoryController::class , 'show'])->name('category.show'); // {category:slug} is to make laravel to search by the slug not the id as default
+Route::get('/{category:slug}', [CategoryController::class, 'show'])->name('category.show'); // {category:slug} is to make laravel to search by the slug not the id as default
 
-Route::post('/review' , [ReviewController::class , 'store'])->name('review.store');
+Route::post('/review', [ReviewController::class, 'store'])->name('review.store');
 
-Route::post('/like' , [LikeController::class , 'store'])->name('like.store');
+Route::post('/like', [LikeController::class, 'store'])->name('like.store');
