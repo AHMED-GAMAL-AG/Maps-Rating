@@ -47,3 +47,24 @@
         </form>
     </div>
 </x-app-layout>
+
+<!-- Make sure you put this AFTER Leaflet's CSS -->
+<script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js" integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
+<script type="text/javascript">
+    var map = L.map('mapid');
+
+    L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png').addTo(map);
+
+    map.locate({
+        setView: true,
+        maxZoom: 10
+    });
+
+    map.on('locationfound', function(e) {
+        L.marker(e.latlng).addTo(map);
+    });
+
+    map.on('locationerror', function(e) {
+        alert(e.message);
+    });
+</script>

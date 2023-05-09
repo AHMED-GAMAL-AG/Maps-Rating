@@ -18,7 +18,8 @@
 
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
-    <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E="crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin="" />
 
     <!-- Styles -->
     @livewireStyles
@@ -63,7 +64,7 @@
                     }
                 }).done(function(data) {
                     $("#address-list").html(
-                    data); // will put the data from the autoComplete method in the searchController in the div
+                        data); // will put the data from the autoComplete method in the searchController in the div
                 });
             });
             $('#address-list').on('click', 'li', function() { // when user clicks on one of the suggestions
