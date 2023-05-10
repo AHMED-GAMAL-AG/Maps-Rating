@@ -10,12 +10,10 @@
     <x-slot name="form">
         <!-- Profile Photo -->
         @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
-            <div x-data="{photoName: null, photoPreview: null}" class="col-span-6 sm:col-span-4">
+            <div x-data="{ photoName: null, photoPreview: null }" class="col-span-6 sm:col-span-4">
                 <!-- Profile Photo File Input -->
-                <input type="file" class="hidden"
-                            wire:model="photo"
-                            x-ref="photo"
-                            x-on:change="
+                <input type="file" class="hidden" wire:model="photo" x-ref="photo"
+                    x-on:change="
                                     photoName = $refs.photo.files[0].name;
                                     const reader = new FileReader();
                                     reader.onload = (e) => {
@@ -33,8 +31,7 @@
 
                 <!-- New Profile Photo Preview -->
                 <div class="mt-2" x-show="photoPreview" style="display: none;">
-                    <span class="block rounded-full w-20 h-20 bg-cover bg-no-repeat bg-center"
-                          x-bind:style="'background-image: url(\'' + photoPreview + '\');'">
+                    <span class="block rounded-full w-20 h-20 bg-cover bg-no-repeat bg-center" x-bind:style="'background-image: url(\'' + photoPreview + '\');'">
                     </span>
                 </div>
 
@@ -65,7 +62,7 @@
             <x-input id="email" type="email" class="mt-1 block w-full" wire:model.defer="state.email" autocomplete="username" />
             <x-input-error for="email" class="mt-2" />
 
-            @if (Laravel\Fortify\Features::enabled(Laravel\Fortify\Features::emailVerification()) && ! $this->user->hasVerifiedEmail())
+            @if (Laravel\Fortify\Features::enabled(Laravel\Fortify\Features::emailVerification()) && !$this->user->hasVerifiedEmail())
                 <p class="text-sm mt-2">
                     {{ __('Your email address is unverified.') }}
 
@@ -81,15 +78,29 @@
                 @endif
             @endif
         </div>
+
+        <!-- Role -->
+        <div class="col-span-6 sm:col-span-4 grid grid-cols-2">
+            <div>
+                <x-label for="owner" value="{{ __('صاحب موقع') }}" />
+                <input id="owner" name="role" type="radio" value="1" class="" wire:model.defer="state.role_id" />
+            </div>
+            <div>
+                <x-label for="user" value="{{ __('مستخدم عادي') }}" />
+                <input id="user" name="role" type="radio" value="2" class="" wire:model.defer="state.role_id" />
+            </div>
+        </div>
     </x-slot>
 
     <x-slot name="actions">
+        <x-button wire:loading.attr="disabled" wire:target="photo">
+            {{ __('Save') }}
+        </x-button>
+
         <x-action-message class="mr-3" on="saved">
             {{ __('Saved.') }}
         </x-action-message>
 
-        <x-button wire:loading.attr="disabled" wire:target="photo">
-            {{ __('Save') }}
-        </x-button>
+
     </x-slot>
 </x-form-section>
