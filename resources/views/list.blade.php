@@ -22,9 +22,9 @@
                             </div>
                             <div class="flex-auto p-6">
                                 <div class="flex flex-wrap">
-                                    <a class="flex-auto text-xl font-semibold hover:underline" href="{{ route('place.show', [$place->id, $place->slug]) }}">
+                                    <h1 class="flex-auto text-xl font-semibold">
                                         {{ $place->name }}
-                                    </a>
+                                    </h1>
                                 </div>
                                 <div class="flex space-x-3 mb-4 text-sm font-medium mt-5">
                                     <div class="flex-auto flex space-x-3">
@@ -35,6 +35,40 @@
                         </div>
                     @endforeach
                 </div>
+
+                <div class="ml-3">
+                    <div id="mapid" style="height: 500px"></div>
+                </div>
+                <div>
         @endif
     </div>
+
 </x-app-layout>
+
+<script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js" integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
+<script>
+    var longitude = {!! $places->pluck('longitude') !!};
+    var latitude = {!! $places->pluck('latitude') !!};
+    var names = {!! $places->pluck('name') !!};
+
+    var map = L.map('mapid');
+
+    L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png').addTo(map);
+
+    var markers = [];
+
+    for (var i = 0; i < longitude.length; i++) { // loop through the array and add markers to show the places
+        var placeName = names[i];
+
+        var marker = L.marker([latitude[i], longitude[i]]).addTo(map);
+
+        marker.bindPopup(placeName).openPopup();
+
+        markers.push(marker);
+    }
+
+    var group = new L.featureGroup(markers).getBounds();
+
+    map.fitBounds(group); // auto zoom to show all the markers
+</script>
+
