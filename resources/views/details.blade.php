@@ -147,15 +147,6 @@
                     @elseif(session('fail'))
                         <x-alert color="red" message="{{ session('fail') }}" />
                     @endif
-                    {{-- @if (session('success'))
-                        <div class="bg-blue-200 relative text-blue-600 py-3 px-3 rounded-lg">
-                            {{ session('success') }}
-                        </div>
-                    @elseif(session('fail'))
-                        <div class="bg-red-200 relative text-red-600 py-3 px-3 rounded-lg">
-                            {{ session('fail') }}
-                        </div>
-                    @endif --}}
 
                     <h3 class="mb-4 mt-3">أضف مراجعة</h3>
                     <hr />
@@ -224,6 +215,7 @@
         </div>
     </x-app-layout>
 
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js" integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
     <script type="text/javascript">
         // on click on like button send ajax request to store like
         $(function() {
@@ -261,4 +253,15 @@
 
             })
         });
+
+        var longitude = $('#longitude').val();
+        var latitude = $('#latitude').val();
+
+        var map = L.map('mapid', {
+            center: [latitude, longitude],
+            zoom: 13
+        });
+
+        L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png').addTo(map);
+        L.marker([latitude, longitude]).bindPopup($('#name').val()).addTo(map).openPopup();
     </script>
