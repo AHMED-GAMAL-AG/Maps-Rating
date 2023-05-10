@@ -147,6 +147,15 @@
                     @elseif(session('fail'))
                         <x-alert color="red" message="{{ session('fail') }}" />
                     @endif
+                    {{-- @if (session('success'))
+                        <div class="bg-blue-200 relative text-blue-600 py-3 px-3 rounded-lg">
+                            {{ session('success') }}
+                        </div>
+                    @elseif(session('fail'))
+                        <div class="bg-red-200 relative text-red-600 py-3 px-3 rounded-lg">
+                            {{ session('fail') }}
+                        </div>
+                    @endif --}}
 
                     <h3 class="mb-4 mt-3">أضف مراجعة</h3>
                     <hr />

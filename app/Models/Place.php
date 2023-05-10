@@ -2,12 +2,25 @@
 
 namespace App\Models;
 
+use App\Helpers\Slug;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Place extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'name',
+        'category_id',
+        'overview',
+        'image',
+        'address',
+        'longitude',
+        'latitude',
+        'user_id',
+        'slug',
+    ];
 
     public function ScopeSearch($query, $request)
     {
@@ -35,5 +48,11 @@ class Place extends Model
     public function reviews()
     {
         return $this->hasMany(Review::class);
+    }
+
+    public function setNameAttribute($value) // mutator function executed when the name attribute is set to set the slug
+    {
+        $this->attributes['name'] = $value;
+        $this->attributes['slug'] = Slug::uniqueSlug($value, 'places');
     }
 }

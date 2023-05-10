@@ -32,7 +32,25 @@ class PlaceController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'category_id' => 'required',
+            'overview' => 'required',
+            'image' => 'image|nullable',
+            'address' => 'required',
+            'longitude' => 'required',
+            'latitude' => 'required',
+        ]);
+
+        if ($request->image) {
+            $image_name = time() . '.' . $request->image->extension(); // get the image name and extension
+            $request->image->storeAs('public\images' , $image_name); // store the image in the public\images folder
+            $request->user()->places()->create($request->except('image') + ['image' => $image_name]); // except the old image and add the new image name to the request // create a new place with the user id in the places table
+        }else{
+            $request->user()->places()->create($request->all()); // create a new place with the user id in the places table
+        }
+
+        return back()->with('success', __('تم إضافة المكان بنجاح'));
     }
 
     /**
