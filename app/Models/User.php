@@ -80,4 +80,9 @@ class User extends Authenticatable
         return $this->hasMany(Place::class);
     }
 
+    public function bookmarks()
+    {
+        return $this->belongsToMany(Place::class, 'bookmarks'); // user can make many bookMarks and place can have many bookMarks
+    }
+
 }

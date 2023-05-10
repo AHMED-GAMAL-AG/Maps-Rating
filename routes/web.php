@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BookmarkController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\LikeController;
@@ -35,6 +36,8 @@ Route::middleware([
 
 Route::resource('/report', ContactController::class, ['only' => ['create', 'store']]);
 
+Route::get('/book_mark/{place_id}', [BookmarkController::class, 'bookmark'])->name('bookmark');
+
 Route::get('/', [PlaceController::class, 'index']);
 Route::resource('/place', PlaceController::class);
 Route::get('/{place}/{slug}', [PlaceController::class, 'show'])->name('place.show');
@@ -47,3 +50,4 @@ Route::get('/{category:slug}', [CategoryController::class, 'show'])->name('categ
 Route::post('/review', [ReviewController::class, 'store'])->name('review.store');
 
 Route::post('/like', [LikeController::class, 'store'])->name('like.store');
+
