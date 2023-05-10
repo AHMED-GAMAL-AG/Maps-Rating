@@ -85,4 +85,8 @@ class User extends Authenticatable
         return $this->belongsToMany(Place::class, 'bookmarks'); // user can make many bookMarks and place can have many bookMarks
     }
 
+    public function alreadyBookmarked($place_id)
+    {
+        return $this->bookmarks()->wherePlaceId($place_id)->exists();
+    }
 }
