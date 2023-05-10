@@ -250,10 +250,10 @@
                         'review_id': review
                     }
                 }).done(function(data) {
-                    if (data) {
+                    if (data) { // check if data is returned from LIkeController
                         $.trim(like_button.find('small').text()) == 'أعجبني' ? showUnLike(data) : showLike(data);
                     } else {
-                        alert('لا يمكنك الإعجاب بهذه المراجعة');
+                        alert('{{ __('لا يمكنك الإعجاب بالتعليق الخاص بك') }}');
                     }
                 });
 
