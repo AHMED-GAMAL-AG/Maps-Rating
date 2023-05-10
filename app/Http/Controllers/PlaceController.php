@@ -9,6 +9,12 @@ use Illuminate\Http\Request;
 class PlaceController extends Controller
 {
     use ReadableTrait;
+
+
+    public function __construct()
+    {
+        $this->middleware('role')->only('create', 'store'); // only the owner can add a new place
+    }
     /**
      * Display a listing of the resource.
      */

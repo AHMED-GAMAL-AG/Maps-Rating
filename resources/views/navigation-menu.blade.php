@@ -29,11 +29,11 @@
 
             @auth
                 <div class="flex" style="width:70%; ">
-
-                    <x-nav-link href="{{ route('place.create') }}" class="text-white">
-                        {{ __('إنشاء موقع') }}
-                    </x-nav-link>
-
+                    @owner
+                        <x-nav-link href="{{ route('place.create') }}" class="text-white">
+                            {{ __('إنشاء موقع') }}
+                        </x-nav-link>
+                    @endowner
                 </div>
 
                 <!-- Settings Dropdown -->
@@ -114,7 +114,7 @@
                             <form method="POST" action="{{ route('logout') }}">
                                 @csrf
 
-                                <x-dropdown-link href="{{ route('logout') }}" onclick="event.preventDefault(); this.closest('form').submit();" >
+                                <x-dropdown-link href="{{ route('logout') }}" onclick="event.preventDefault(); this.closest('form').submit();">
                                     {{ __('Logout') }}
                                 </x-dropdown-link>
                             </form>
