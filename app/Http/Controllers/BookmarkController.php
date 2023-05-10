@@ -13,4 +13,11 @@ class BookmarkController extends Controller
 
         return back();
     }
+
+    public function getAllBookmarks()
+    {
+        $bookmarks = auth()->user()->bookmarks; // get all the bookmarks of the authenticated user
+
+        return view('user_bookmarks' , compact('bookmarks'));
+    }
 }

@@ -37,6 +37,7 @@ Route::middleware([
 Route::resource('/report', ContactController::class, ['only' => ['create', 'store']]);
 
 Route::get('/book_mark/{place_id}', [BookmarkController::class, 'bookmark'])->name('bookmark');
+Route::get('/bookmarks', [BookmarkController::class, 'getAllBookmarks'])->name('bookmark.all');
 
 Route::get('/', [PlaceController::class, 'index']);
 Route::resource('/place', PlaceController::class);
