@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Foundation\Http\FormRequest;
 
 class ReviewFormRequest extends FormRequest
@@ -11,7 +12,7 @@ class ReviewFormRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return true;
+        return auth()->check();
     }
 
     /**
@@ -21,7 +22,6 @@ class ReviewFormRequest extends FormRequest
      */
     public function rules(): array
     {
-
         $this->redirect = url()->previous() . '#review-div'; // redirect to the previous page to the review div
 
         return [
@@ -31,5 +31,19 @@ class ReviewFormRequest extends FormRequest
             'cleanliness_rating' => 'required',
             'pricing_rating' => 'required',
         ];
+    }
+
+    // use validation in lang folder instead
+    // public function messages()
+    // {
+    //     return [
+    //         'review.required' => 'حقل المراجعة فارغ',
+    //         'review.min' => 'محتوى المراجعة قصير جدًا'
+    //     ];
+    // }
+
+    public function failedAuthorization()
+    {
+        throw new AuthorizationException(__('لا تمتلك صلاحية إضافة مراجعة، فضلًا سجل دخولك للموقع')); // for custom 403 message in 403.blade.php
     }
 }

@@ -25,6 +25,6 @@ class ContactController extends Controller
         Report::create($data);
         Mail::send(new SendReport($request->all()));
 
-        return back()->with('success', 'تم إرسال الإبلاغ بنجاح');
+        return back()->with('success', 'تم إرسال البلاغ بنجاح');
     }
 }

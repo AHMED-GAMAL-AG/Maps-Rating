@@ -1,7 +1,9 @@
 <x-mail::message>
-<h2>مرحباً</h2>
+<h2> مرحبًا</h2>
 
-The body of your message.
+{{ $data['name'] }} :المستخدم
+<br>
+{{ $data['place_url'] }}  :أبلغ عن الرابط
 
 <x-mail::button :url="''">
 Button Text
