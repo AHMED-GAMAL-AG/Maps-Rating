@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ReviewFormRequest;
 use App\Models\Review;
 use Illuminate\Http\Request;
 
@@ -26,16 +27,16 @@ class ReviewController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(ReviewFormRequest $request)
     {
-
-        $request->validate([
-            'service_rating' => 'required',
-            'quality_rating' => 'required',
-            'cleanliness_rating' => 'required',
-            'pricing_rating' => 'required',
-            'review' => 'required',
-        ]);
+        // instead use ReviewFormRequest
+        // $request->validate([
+        //     'review' => 'required',
+        //     'service_rating' => 'required',
+        //     'quality_rating' => 'required',
+        //     'cleanliness_rating' => 'required',
+        //     'pricing_rating' => 'required',
+        // ]);
 
         if ($request->user()->reviews()->wherePlace_id($request->place_id)->exists()) {
             return redirect(url()->previous() . '#review-div')->with('fail', 'لقد قمت بتقييم هذا الموقع مسبقاً'); // redirect to the previous page to the review div

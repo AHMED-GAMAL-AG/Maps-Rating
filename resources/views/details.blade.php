@@ -71,7 +71,7 @@
                             </h3>
                         </div>
                         <div>
-                            <span>{{__('عدد التقييمات')}}</span> {{ $place->reviews_count }}
+                            <span>{{ __('عدد التقييمات') }}</span> {{ $place->reviews_count }}
                         </div>
                     </div>
                     <div class="mr-2 col-span-2">
@@ -83,7 +83,7 @@
                         </div>
                         <!-- end 4 -->
                         <div class="text-right">
-                            <span class=""></span> {{__('الجودة')}}
+                            <span class=""></span> {{ __('الجودة') }}
                         </div>
                         <div class="text-right">
                             <progress value="{{ $quality_rating }}" class="w-full" max="5" title="{{ round($quality_rating, 1) }}"></progress>
@@ -209,9 +209,17 @@
                             <div class="form-group">
                                 <textarea class="border w-full" name="review" id="review" cols="30" rows="9"></textarea>
                             </div>
-                            @error('review')
-                                <x-alert color="red" message="{{ $message }}" />
-                            @enderror
+
+                            @if ($errors->any())
+                                <div class="error">
+                                    <ul class="mt-3 list-disc list-inside text-sm text-red-600">
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
+
                             <input class="form-control" name="place_id" id="place_id" type="hidden" value="{{ $place->id }}">
                             <button type="submit" class="mt-3 bg-blue-600 text-gray-200 rounded hover:bg-blue-500 px-4 py-2 focus:outline-none">إرسال</button>
                         </div>
