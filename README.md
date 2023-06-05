@@ -1,66 +1,73 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+## Maps Rating
+a website for rating places on a real-time map
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+you will find an installation guide below.
 
-## About Laravel
+## Screenshots
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+home page :
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+![image](https://github.com/AHMED-GAMAL-AG/Maps-Rating/assets/76778937/e15c42be-efb3-423a-9dae-7ce3da74fd67)
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+the user can view a place location, bookmark or report the place :
 
-## Learning Laravel
+![image](https://github.com/AHMED-GAMAL-AG/Maps-Rating/assets/76778937/38c88b72-25c4-4883-8c43-ee03f637e1b0)
+![image](https://github.com/AHMED-GAMAL-AG/Maps-Rating/assets/76778937/d8a92188-1755-48ea-82ca-54564b216065)
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+see the reviews on the place and review them (like/dislike) :
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+![image](https://github.com/AHMED-GAMAL-AG/Maps-Rating/assets/76778937/6f0d7f13-d30b-47e8-91b7-b32594c61c7f)
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+add a review on a place :
 
-## Laravel Sponsors
+![image](https://github.com/AHMED-GAMAL-AG/Maps-Rating/assets/76778937/1c27280c-085c-46cd-82d3-c26f494f2d1f)
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+view bookmarked places :
 
-### Premium Partners
+![image](https://github.com/AHMED-GAMAL-AG/Maps-Rating/assets/76778937/f56b8aa7-a4b9-4b22-a0ec-55230ec21769)
+![image](https://github.com/AHMED-GAMAL-AG/Maps-Rating/assets/76778937/ead6eb10-8c2a-4cdd-87d6-31977f232914)
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+report a place : 
 
-## Contributing
+![image](https://github.com/AHMED-GAMAL-AG/Maps-Rating/assets/76778937/427e4e79-b609-4265-9a70-88ac0433c088)
+![image](https://github.com/AHMED-GAMAL-AG/Maps-Rating/assets/76778937/b3ec395f-7f6e-47b6-962d-9382a4f03b00)
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+the user can click through a category and view all places in the category and their locations :
 
-## Code of Conduct
+![image](https://github.com/AHMED-GAMAL-AG/Maps-Rating/assets/76778937/2e497d05-dd00-44ec-96b7-c77a2ba9b601)
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+the user can search and help him with a search hint :
 
-## Security Vulnerabilities
+![image](https://github.com/AHMED-GAMAL-AG/Maps-Rating/assets/76778937/f28d98cd-ee97-4546-b51f-5eadc45cd76d)
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+show the search result with the location :
 
-## License
+![image](https://github.com/AHMED-GAMAL-AG/Maps-Rating/assets/76778937/5e131a24-e833-40bc-acb1-59b19f6972cf)
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+the user can add a place to the website, and show the map with the current location of the user :
+
+![image](https://github.com/AHMED-GAMAL-AG/Maps-Rating/assets/76778937/70529e01-c223-4d0f-9873-decd59e04595)
+
+automatically bring the values of the longitude and latitude form the map when the user clicks on it :
+
+![image](https://github.com/AHMED-GAMAL-AG/Maps-Rating/assets/76778937/9a26732b-8d61-4d4d-bff8-abde02e95822)
+![image](https://github.com/AHMED-GAMAL-AG/Maps-Rating/assets/76778937/14a18b1b-0f04-4581-a4e9-aa27564a0c1d)
+
+the user can view the new location on the website :
+
+![image](https://github.com/AHMED-GAMAL-AG/Maps-Rating/assets/76778937/520a9388-b6e2-41e0-9bbb-1e975bee6b9b)
+
+## installation 
+
+<ul>
+<li><code>git clone https://github.com/AHMED-GAMAL-AG/Maps-Rating.git</code></li>
+<li><code>Create a .env file and configure the database.</code></li>
+<li><code>composer install</code></li>
+<li><code>npm install</code></li>
+<li><code>php artisan key:generate</code></li>
+<li><code>php artisan migrate --seed</code></li>
+<li><code>php artisan storage:link</code></li>
+</ul>
+
+
+
