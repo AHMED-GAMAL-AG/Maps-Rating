@@ -5,7 +5,10 @@
 
     <div class="container my-12 mx-auto md:px-12 bg-white p-5 border">
         @if (session('success'))
-            <x-alert color="blue" message="{{ session('success') }}" />
+            {{-- <x-alert color="blue" message="{{ session('success') }}" /> --}}
+            <div class="bg-blue-200 relative text-blue-600 py-3 px-3 rounded-lg">
+                {{ session('success') }}
+            </div>
         @endif
         <form action="{{ route('report.store') }}" method="post">
             @csrf

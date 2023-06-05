@@ -64,6 +64,16 @@ class User extends Authenticatable
         return $this->hasMany(Review::class);
     }
 
+    /**
+     * Get the default profile photo URL if no profile photo has been uploaded.
+     *
+     * @return string
+     */
+    protected function defaultProfilePhotoUrl() // override default profile photo
+    {
+        return 'https://api.dicebear.com/6.x/bottts-neutral/svg?seed=' . urlencode($this->name);
+    }
+
 
     public function likes()
     {

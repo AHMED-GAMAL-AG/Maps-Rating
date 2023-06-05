@@ -5,19 +5,20 @@
             <div class="flex">
                 <!-- Logo -->
                 <div class="flex-shrink-0 flex items-center">
-                    <a href="/">
+                    {{-- <a href="/">
                         <x-application-mark class="block h-9 w-auto" />
-                    </a>
+                    </a> --}}
+                    <x-nav-link href="/" class="text-white">{{ __('تقيم خرائط') }} </x-nav-link>
                 </div>
 
-                @auth
+                {{-- @auth
                     <!-- Navigation Links -->
                     <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex mr-5">
                         <x-nav-link href="/" :active="request()->routeIs('dashboard')" class="text-white">
                             {{ __('Dashboard') }}
                         </x-nav-link>
                     </div>
-                @endauth
+                @endauth --}}
             </div>
 
             @guest
@@ -28,7 +29,7 @@
             @endguest
 
             @auth
-                <div class="flex" style="width:70%; ">
+                <div class="flex" style="width:80%; ">
                     @owner
                         <x-nav-link href="{{ route('place.create') }}" class="text-white">
                             {{ __('إنشاء موقع') }}
