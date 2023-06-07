@@ -57,6 +57,12 @@ the user can view the new location on the website :
 
 ![image](https://github.com/AHMED-GAMAL-AG/Maps-Rating/assets/76778937/520a9388-b6e2-41e0-9bbb-1e975bee6b9b)
 
+the user can update his information, change password, activate two-factor authentication ,manage sessions on other browsers, delete the account from the edit account page :
+
+![image](https://github.com/AHMED-GAMAL-AG/Video_Sharing_Platform/assets/76778937/50e52063-8da7-49c4-91c6-02eaa331a99b)
+![image](https://github.com/AHMED-GAMAL-AG/instagram_demo/assets/76778937/bebbbd92-4deb-47b7-ad1f-f7d1cfe41792)
+![image](https://github.com/AHMED-GAMAL-AG/instagram_demo/assets/76778937/0a1efacf-50a4-4c82-98d8-e436af08c4e4)
+
 ## installation 
 
 <ul>
