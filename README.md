@@ -32,6 +32,11 @@ report a place :
 ![image](https://github.com/AHMED-GAMAL-AG/Maps-Rating/assets/76778937/427e4e79-b609-4265-9a70-88ac0433c088)
 ![image](https://github.com/AHMED-GAMAL-AG/Maps-Rating/assets/76778937/b3ec395f-7f6e-47b6-962d-9382a4f03b00)
 
+The user gets a confirmation email after reporting :
+
+![image](https://github.com/AHMED-GAMAL-AG/Maps-Rating/assets/76778937/f34efc06-47bc-4c82-a4d3-5294288d958d)
+
+
 the user can click through a category and view all places in the category and their locations :
 
 ![image](https://github.com/AHMED-GAMAL-AG/Maps-Rating/assets/76778937/2e497d05-dd00-44ec-96b7-c77a2ba9b601)
