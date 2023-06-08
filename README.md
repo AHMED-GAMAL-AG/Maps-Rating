@@ -32,6 +32,11 @@ report a place :
 ![image](https://github.com/AHMED-GAMAL-AG/Maps-Rating/assets/76778937/427e4e79-b609-4265-9a70-88ac0433c088)
 ![image](https://github.com/AHMED-GAMAL-AG/Maps-Rating/assets/76778937/b3ec395f-7f6e-47b6-962d-9382a4f03b00)
 
+The user gets a confirmation email after reporting :
+
+![image](https://github.com/AHMED-GAMAL-AG/Maps-Rating/assets/76778937/f34efc06-47bc-4c82-a4d3-5294288d958d)
+
+
 the user can click through a category and view all places in the category and their locations :
 
 ![image](https://github.com/AHMED-GAMAL-AG/Maps-Rating/assets/76778937/2e497d05-dd00-44ec-96b7-c77a2ba9b601)
@@ -56,6 +61,12 @@ automatically bring the values of the longitude and latitude form the map when t
 the user can view the new location on the website :
 
 ![image](https://github.com/AHMED-GAMAL-AG/Maps-Rating/assets/76778937/520a9388-b6e2-41e0-9bbb-1e975bee6b9b)
+
+the user can update his information, change password, activate two-factor authentication ,manage sessions on other browsers, delete the account from the edit account page :
+
+![image](https://github.com/AHMED-GAMAL-AG/Video_Sharing_Platform/assets/76778937/50e52063-8da7-49c4-91c6-02eaa331a99b)
+![image](https://github.com/AHMED-GAMAL-AG/instagram_demo/assets/76778937/bebbbd92-4deb-47b7-ad1f-f7d1cfe41792)
+![image](https://github.com/AHMED-GAMAL-AG/instagram_demo/assets/76778937/0a1efacf-50a4-4c82-98d8-e436af08c4e4)
 
 ## installation 
 
