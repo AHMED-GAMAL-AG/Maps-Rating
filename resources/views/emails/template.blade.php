@@ -3,12 +3,12 @@
 
 {{ $data['name'] }} :المستخدم
 <br>
-{{ $data['place_url'] }}  :أبلغ عن الرابط
+{{ $data['place_url'] }}  :أبلغت عن الرابط
 
 <x-mail::button :url="''">
-Button Text
+الذهاب إلى الرابط
 </x-mail::button>
 
 Thanks,<br>
-{{ config('app.name') }}
+maps-rating
 </x-mail::message>
